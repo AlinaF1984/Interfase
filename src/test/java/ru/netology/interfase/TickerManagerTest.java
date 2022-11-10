@@ -3,6 +3,7 @@ package ru.netology.interfase;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+
 class TickerManagerTest {
 
     @Test
@@ -10,13 +11,13 @@ class TickerManagerTest {
         TicketRepositiry repo = new TicketRepositiry();
         TickerManager manager = new TickerManager(repo);
 
-        Ticket ticket = new Ticket(1, 100, "UFA", "OMSK");
+        Ticket ticket = new Ticket(1, 400, "UFA", "OMSK");
         Ticket ticket2 = new Ticket(2, 150, "UFA", "OMSK");
         Ticket ticket3 = new Ticket(3, 200, "UFA", "OMSK");
         Ticket ticket4 = new Ticket(4, 250, "UFA", "OMSK");
-        Ticket ticket5 = new Ticket(5, 200, "ORSK", "OMSK");
-        Ticket ticket6 = new Ticket(6, 300, "UFA", "MOSKVA");
-        Ticket ticket7 = new Ticket(7, 350, "UFA", "ORSK");
+        Ticket ticket5 = new Ticket(5, 230, "ORK", "OMSK");
+        Ticket ticket6 = new Ticket(6, 300, "UFA", "MOSA");
+        Ticket ticket7 = new Ticket(7, 350, "UFA", "ORK");
 
         manager.add(ticket);
         manager.add(ticket2);
@@ -28,7 +29,7 @@ class TickerManagerTest {
 
 
         Ticket[] actual = manager.findAll("OMSK", "UFA");
-        Ticket[] expected = {ticket, ticket2, ticket3, ticket4};
+        Ticket[] expected = {ticket2, ticket3, ticket4, ticket};
 
         Assertions.assertArrayEquals(expected, actual);
 

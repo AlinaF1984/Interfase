@@ -9,8 +9,10 @@ public class TicketRepositiry {
 
     public void add(Ticket ticket) {
         Ticket[] tmp = new Ticket[tickets.length + 1];
-        System.arraycopy(tickets, 0, tmp, 0, tickets.length);
-        tmp[tickets.length - 1] = ticket;
+        for (int i = 0; i < tickets.length; i++) {
+            tmp[i] = tickets[i];
+        }
+        tmp[tmp.length - 1] = ticket;
         tickets = tmp;
     }
 
